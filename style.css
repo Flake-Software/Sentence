@@ -1,131 +1,137 @@
 :root {
-    /* Živahnija M3 Paleta */
-    --md-sys-color-primary: #0061A4;
-    --md-sys-color-primary-container: #D3E4FF;
-    --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-    --glass-bg: rgba(255, 255, 255, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.6);
-    
-    /* M3 Corner Radius */
-    --md-sys-corner-full: 1000px;
-    --md-sys-corner-extra-large: 32px;
+    --primary: #0061a4;
+    --primary-light: #d3e4ff;
+    --accent: #6750a4;
+    --text-main: #1a1c1e;
+    --text-muted: #43474e;
+    /* Prefinjeni gradijent za pozadinu */
+    --bg-main: radial-gradient(at 0% 0%, #e9f0ff 0, transparent 50%), 
+               radial-gradient(at 100% 0%, #f0f4f8 0, transparent 50%), 
+               radial-gradient(at 100% 100%, #dbe9ff 0, transparent 50%), 
+               radial-gradient(at 0% 100%, #ffffff 0, transparent 50%);
 }
 
 * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: var(--bg-gradient);
+    font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+    background: #f8faff;
+    background-image: var(--bg-main);
     background-attachment: fixed;
-    color: #1a1c20;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
+    color: var(--text-main);
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
-/* --- HEADER --- */
+/* --- HEADER / HERO --- */
 .m3-header {
-    padding: 100px 24px;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.header-content {
+    max-width: 900px;
     text-align: center;
-    /* Suptilni sjaj na vrhu */
-    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.5) 0%, transparent 70%);
 }
 
 .brand-container {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 40px;
-    padding: 8px 16px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--md-sys-corner-full);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 32px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
 .brand-logo {
     font-weight: 900;
-    font-size: 1.8rem;
-    color: var(--md-sys-color-primary);
-    letter-spacing: -1px;
-    /* Blagi odsjaj na tekstu */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 1.6rem;
+    color: var(--primary);
+    letter-spacing: -1.5px;
 }
 
 .m3-badge {
-    background: var(--md-sys-color-primary);
+    background: var(--primary);
     color: white;
-    padding: 4px 12px;
-    border-radius: var(--md-sys-corner-full);
-    font-size: 0.7rem;
-    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
 .hero-title {
     font-weight: 900;
-    font-size: clamp(3rem, 10vw, 5rem); /* Responzivna veličina */
-    margin: 0 0 20px;
-    letter-spacing: -2px;
-    line-height: 1;
-    background: linear-gradient(to bottom, #001c38, #0061a4);
+    font-size: clamp(3.5rem, 12vw, 6rem);
+    line-height: 0.95;
+    margin: 0 0 24px;
+    letter-spacing: -4px;
+    /* Sofisticiran gradijent na tekstu */
+    background: linear-gradient(135deg, #001c38 0%, #0061a4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
     font-size: 1.4rem;
-    font-weight: 300;
-    margin-bottom: 48px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #43474e;
+    font-weight: 400;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 48px;
+    line-height: 1.4;
 }
 
 /* --- BUTTONS --- */
 .m3-actions {
     display: flex;
+    gap: 16px;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
 }
 
 .m3-button {
-    padding: 20px 40px;
-    border-radius: var(--md-sys-corner-full);
+    padding: 20px 42px;
+    border-radius: 100px;
     font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1.05rem;
     text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    border: none;
+    cursor: pointer;
 }
 
 .m3-button-filled {
-    background: linear-gradient(180deg, #0078d4 0%, #0061a4 100%);
+    background: var(--primary);
     color: white;
-    box-shadow: 0 8px 20px rgba(0, 97, 164, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 97, 164, 0.25);
 }
 
 .m3-button-tonal {
-    background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    color: #001c38;
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--primary);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .m3-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* --- MAIN CONTENT --- */
+/* --- CARDS (The Sophisticated Part) --- */
 .m3-main {
-    padding: 40px 24px 100px;
+    padding: 80px 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -137,44 +143,53 @@ body {
 }
 
 .m3-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
     padding: 48px;
-    border-radius: var(--md-sys-corner-extra-large);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: all 0.4s ease;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .m3-card:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.7);
+    transform: translateY(-12px);
+    border-color: var(--primary-light);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
 }
 
 .card-icon {
     font-size: 2.5rem;
     margin-bottom: 24px;
-    display: block;
-    /* Aero stil: ikone sa blagim drop-shadow */
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    display: inline-block;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
 }
 
 .m3-card h3 {
     font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin: 0 0 12px;
+    color: #001c38;
+}
+
+.m3-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 /* --- FOOTER --- */
 .m3-footer {
+    padding: 80px 24px 40px;
     text-align: center;
-    padding: 60px 24px;
-    color: #43474e;
+    font-size: 0.95rem;
+    color: var(--text-muted);
 }
 
 .m3-footer a {
-    color: var(--md-sys-color-primary);
+    color: var(--primary);
     text-decoration: none;
     font-weight: 700;
 }
