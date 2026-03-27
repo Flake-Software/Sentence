@@ -1,10 +1,7 @@
 :root {
     --primary: #0061a4;
-    --primary-light: #d3e4ff;
-    --accent: #6750a4;
     --text-main: #1a1c1e;
     --text-muted: #43474e;
-    /* Prefinjeni gradijent za pozadinu (malo topliji) */
     --bg-main: radial-gradient(at 0% 0%, #e9f0ff 0, transparent 55%), 
                radial-gradient(at 100% 0%, #f7f9fc 0, transparent 55%), 
                radial-gradient(at 100% 100%, #dbe9ff 0, transparent 55%), 
@@ -13,200 +10,135 @@
 
 * {
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     margin: 0;
-    font-family: 'Roboto', system-ui, -apple-system, sans-serif;
-    background: #f8faff;
+    font-family: 'Roboto', sans-serif;
     background-image: var(--bg-main);
     background-attachment: fixed;
     color: var(--text-main);
-    line-height: 1.5;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
-/* --- HEADER / HERO --- */
+/* --- FIX ZA LOGO I HEADER --- */
 .m3-header {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 60px 20px;
-}
-
-.header-content {
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-/* --- LOGO KONTEJNER --- */
 .brand-container {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column; /* Logo iznad teksta na mobilnom */
     align-items: center;
-    gap: 20px; /* Veći razmak između logoa i teksta */
-    margin-bottom: 40px;
-    padding: 15px 30px;
-    background: rgba(255, 255, 255, 0.6);
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(20px);
-    border-radius: 60px; /* Veće zaobljenje */
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    max-width: 90%; /* Da ne beži sa ekrana */
 }
 
+/* OVO JE KLJUČNI FIX */
 .main-logo {
-    width: 64px; /* Veličina logoa */
-    height: 64px;
-    border-radius: 16px; /* Zaobljene ivice samog logoa */
+    width: 80px;  /* FIKSNA ŠIRINA */
+    height: 80px; /* FIKSNA VISINA */
     object-fit: contain;
-    /* Aero efekat: sjenka oko logoa */
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
+    border-radius: 20px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
 .brand-text-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .brand-logo {
     font-weight: 900;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--primary);
-    letter-spacing: -1.5px;
-    line-height: 1;
+    letter-spacing: -1px;
 }
 
 .m3-badge {
     background: var(--primary);
     color: white;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.65rem;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.6rem;
     font-weight: 900;
-    text-transform: uppercase;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
+/* --- HERO TEKST --- */
 .hero-title {
     font-weight: 900;
-    font-size: clamp(3.5rem, 12vw, 6rem);
-    line-height: 0.95;
-    margin: 0 0 24px;
-    letter-spacing: -4px;
-    /* Sofisticiran gradijent na tekstu (jači kontrast) */
-    background: linear-gradient(135deg, #001c38 10%, #0061a4 100%);
+    font-size: clamp(2.5rem, 10vw, 4.5rem); /* Smanjeno malo za mobilni */
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #001c38 20%, #0061a4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-    font-size: 1.4rem;
-    font-weight: 400;
+    font-size: 1.1rem;
     color: var(--text-muted);
-    max-width: 650px;
-    margin: 0 auto 50px;
-    line-height: 1.4;
+    max-width: 500px;
+    margin-bottom: 40px;
 }
 
-/* --- BUTTONS --- */
+/* --- DUGMIĆI --- */
 .m3-actions {
     display: flex;
-    gap: 18px;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 12px;
+    flex-direction: column; /* Jedan ispod drugog na malim ekranima */
+    width: 100%;
+    max-width: 300px;
 }
 
 .m3-button {
-    padding: 22px 48px;
+    padding: 16px 32px;
     border-radius: 100px;
     font-weight: 700;
-    font-size: 1.1rem;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    border: none;
-    cursor: pointer;
+    text-align: center;
 }
 
 .m3-button-filled {
     background: var(--primary);
     color: white;
-    box-shadow: 0 15px 35px rgba(0, 97, 164, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 97, 164, 0.2);
 }
 
 .m3-button-tonal {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.6);
     color: var(--primary);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.m3-button:hover {
-    transform: translateY(-7px) scale(1.03); /* Malo jači hover */
-    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
-}
-
-/* --- CARDS (The Sophisticated Part) --- */
+/* --- KARTICE --- */
 .m3-main {
-    padding: 80px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 .m3-feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-    gap: 36px;
+    grid-template-columns: 1fr; /* Na mobilnom uvek jedna kolona */
+    gap: 20px;
 }
 
 .m3-card {
     background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(25px);
-    padding: 50px;
-    border-radius: 36px;
+    padding: 30px;
+    border-radius: 28px;
     border: 1px solid rgba(255, 255, 255, 0.8);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.m3-card:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transform: translateY(-15px); /* Jači hover */
-    border-color: var(--primary-light);
-    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.06);
-}
-
-.card-icon {
-    font-size: 2.8rem; /* Veće ikone */
-    margin-bottom: 24px;
-    display: inline-block;
-    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
-}
-
-.m3-card h3 {
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin: 0 0 12px;
-    color: #001c38;
-}
-
-.m3-card p {
-    color: var(--text-muted);
-    font-size: 1.15rem;
-    margin: 0;
-}
-
-/* --- FOOTER --- */
-.m3-footer {
-    padding: 100px 24px 50px;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--text-muted);
-}
-
-.m3-footer a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 700;
+    backdrop-filter: blur(10px);
 }
