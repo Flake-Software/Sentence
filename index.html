@@ -3,58 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>f.Sentence | More than a text editor</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/images/ic_launcher.png">
+    <title>f.Sentence | Flake Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF8F00; /* Your orange */
+            --background: #000000; /* Pitch Black */
+            --surface: #1C1B1F; /* M3 Dark Surface */
+            --on-surface: #E6E1E5;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--on-surface);
+            font-family: 'Google Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 28px;
+            padding: 24px;
+            margin: 20px;
+            max-width: 600px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .button {
+            background: var(--primary);
+            color: black;
+            padding: 12px 24px;
+            border-radius: 100px; /* Pill shape */
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header class="m3-header">
-        <div class="header-content">
-            <div class="brand-container">
-                <img src="assets/images/ic_launcher.png" alt="f.Sentence Logo" class="main-logo">
-                <div class="brand-text-group">
-                    <span class="brand-logo">f.Sentence</span>
-                    <span class="m3-badge">FOSS</span>
-                </div>
-            </div>
-            
-            <h1 class="hero-title">Your thoughts, focused.</h1>
-            <p class="hero-subtitle">A tool that respects <b>your creativity.</b> No distractions, no compromise.</p>
-            
-            <div class="m3-actions">
-                <button class="m3-button m3-button-filled">Download pre-release</button>
-                <a href="https://github.com/Flake-Software/f.Sentence" class="m3-button m3-button-tonal">View Code</a>
-            </div>
-        </div>
-    </header>
+    <section class="hero">
+        <h1>f.Sentence</h1>
+        <p>The open-source text processor for the next generation.</p>
+        <a href="https://github.com/Flake-Software/f.Sentence" class="button">View on GitHub</a>
+    </section>
 
-    <main class="m3-main">
-        <section class="m3-feature-grid">
-            <div class="m3-card m3-card-elevated">
-                <div class="card-icon"><span>🔒</span></div>
-                <h3>Stay Offline</h3>
-                <p>Your creativity belongs to you. We keep it that way by keeping everything on your device.</p>
-            </div>
-            <div class="m3-card m3-card-elevated">
-                <div class="card-icon"><span>🚀</span></div>
-                <h3>Zero Lag</h3>
-                <p>Written to be fast. Large documents won't slow you down, so your flow stays unbroken.</p>
-            </div>
-            <div class="m3-card m3-card-elevated">
-                <div class="card-icon"><span>✨</span></div>
-                <h3>Naturally Yours</h3>
-                <p>Built with Material You to feel like a native part of your system, not just another app.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="m3-footer">
-        <p>A <a href="https://github.com/Flake-Software">Flake</a> project.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <div class="card">
+        <h3>Material You, by choice.</h3>
+        <p>Enjoy a beautiful interface that stays out of your way.</p>
+    </div>
 </body>
 </html>
